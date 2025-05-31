@@ -1,0 +1,20 @@
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\bin\Debug\curso_01.exe
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\bin\Debug\curso_01.pdb
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\bin\Debug\curso_01.xml
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.Resources.resources
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.vbproj.GenerateResource.Cache
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.exe
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.xml
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.pdb
+C:\Users\rope1\AppData\Local\Temporary Projects\curso_01\obj\Debug\curso_01.Form1.resources
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.exe
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.xml
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.pdb
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\curso_01.exe
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\curso_01.pdb
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\curso_01.xml
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.Form1.resources
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.Resources.resources
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.vbproj.GenerateResource.Cache
