@@ -1,0 +1,33 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Compiled binaries
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.vshost.*
+*.cache
+*.log
+*.xml
+
+# Others
+*.dbmdl
+*.bak
+*.zip
+*.tmp
+
+bin/
+obj/
+.vs/
+curso_01/bin/
+curso_01/obj/
+*.suo
+*.user
+*.pdb
+*.exe
+*.vshost.*
+*.xml
