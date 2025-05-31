@@ -1,6 +1,6 @@
-# Curso de Visual Basic - ABS
+# Curso - ABS
 
-Este repositorio contiene el proyecto base del curso de Visual Basic impartido por la empresa **ABS**, diseñado como introducción para prospectos interesados en unirse a la organización. La aplicación fue desarrollada utilizando **Windows Forms** sobre el lenguaje **Visual Basic .NET**.
+Este repositorio contiene el proyecto base del curso impartido por la empresa **ABS**, diseñado como introducción para prospectos interesados en unirse a la organización. La aplicación fue desarrollada utilizando **Windows Forms** sobre el lenguaje **Visual Basic .NET**.
 
 ---
 
