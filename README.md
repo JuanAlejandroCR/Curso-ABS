@@ -56,7 +56,7 @@ curso_01/
 │ ├── obj/
 │ ├── config/
 │ │ └── conexion.txt # Archivo con cadena de conexión (ignorado por Git)
-│ ├── Form1.vb
+│ ├── Form1.vb # Clase principal del proyecto (de momento)
 └── README.md
 ```
 ---
