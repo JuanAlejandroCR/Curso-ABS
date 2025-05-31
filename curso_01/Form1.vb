@@ -8,6 +8,7 @@ Public Class Form1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
+        ' Lee el sting de conexion a la DB en el archivo config\conexion.txt
         Dim rutaBase As String = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\"))
         Dim rutaConexion As String = Path.Combine(rutaBase, "config\conexion.txt")
 
