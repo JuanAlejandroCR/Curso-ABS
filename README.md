@@ -48,6 +48,7 @@ Servir como base técnica y didáctica del curso, facilitando:
 ---
 
 ## 🧩 Estructura del proyecto
+```
 curso_01/
 ├── curso_01.sln
 ├── curso_01/
@@ -57,7 +58,7 @@ curso_01/
 │ │ └── conexion.txt # Archivo con cadena de conexión (ignorado por Git)
 │ ├── Form1.vb
 └── README.md
-
+```
 ---
 
 ## 📎 Notas adicionales
