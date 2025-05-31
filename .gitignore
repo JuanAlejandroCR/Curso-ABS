@@ -25,9 +25,8 @@ obj/
 .vs/
 curso_01/bin/
 curso_01/obj/
-*.suo
-*.user
-*.pdb
 *.exe
 *.vshost.*
 *.xml
+
+curso_01/config/conexion.txt
