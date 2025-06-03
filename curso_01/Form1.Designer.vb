@@ -34,6 +34,13 @@ Partial Class Form1
         Me.dgvCarreras = New System.Windows.Forms.DataGridView
         Me.btnListar = New System.Windows.Forms.Button
         Me.btnConsultar = New System.Windows.Forms.Button
+        Me.txtAncho = New System.Windows.Forms.TextBox
+        Me.txtLargo = New System.Windows.Forms.TextBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.btnArea = New System.Windows.Forms.Button
+        Me.txtResultado = New System.Windows.Forms.TextBox
+        Me.txtResultadoArea = New System.Windows.Forms.Label
         CType(Me.dgvCarreras, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -138,11 +145,75 @@ Partial Class Form1
         Me.btnConsultar.Text = "Consulta:"
         Me.btnConsultar.UseVisualStyleBackColor = True
         '
+        'txtAncho
+        '
+        Me.txtAncho.Location = New System.Drawing.Point(96, 533)
+        Me.txtAncho.Name = "txtAncho"
+        Me.txtAncho.Size = New System.Drawing.Size(100, 20)
+        Me.txtAncho.TabIndex = 12
+        '
+        'txtLargo
+        '
+        Me.txtLargo.Location = New System.Drawing.Point(96, 576)
+        Me.txtLargo.Name = "txtLargo"
+        Me.txtLargo.Size = New System.Drawing.Size(100, 20)
+        Me.txtLargo.TabIndex = 13
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(41, 536)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(38, 13)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "Ancho"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(41, 579)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(34, 13)
+        Me.Label5.TabIndex = 15
+        Me.Label5.Text = "Largo"
+        '
+        'btnArea
+        '
+        Me.btnArea.Location = New System.Drawing.Point(229, 531)
+        Me.btnArea.Name = "btnArea"
+        Me.btnArea.Size = New System.Drawing.Size(79, 23)
+        Me.btnArea.TabIndex = 16
+        Me.btnArea.Text = "Calcular Área"
+        Me.btnArea.UseVisualStyleBackColor = True
+        '
+        'txtResultado
+        '
+        Me.txtResultado.Location = New System.Drawing.Point(316, 579)
+        Me.txtResultado.Name = "txtResultado"
+        Me.txtResultado.Size = New System.Drawing.Size(100, 20)
+        Me.txtResultado.TabIndex = 17
+        '
+        'txtResultadoArea
+        '
+        Me.txtResultadoArea.AutoSize = True
+        Me.txtResultadoArea.Location = New System.Drawing.Point(249, 582)
+        Me.txtResultadoArea.Name = "txtResultadoArea"
+        Me.txtResultadoArea.Size = New System.Drawing.Size(29, 13)
+        Me.txtResultadoArea.TabIndex = 18
+        Me.txtResultadoArea.Text = "Área"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 467)
+        Me.ClientSize = New System.Drawing.Size(820, 663)
+        Me.Controls.Add(Me.txtResultadoArea)
+        Me.Controls.Add(Me.txtResultado)
+        Me.Controls.Add(Me.btnArea)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.txtLargo)
+        Me.Controls.Add(Me.txtAncho)
         Me.Controls.Add(Me.btnConsultar)
         Me.Controls.Add(Me.btnListar)
         Me.Controls.Add(Me.dgvCarreras)
@@ -174,5 +245,12 @@ Partial Class Form1
     Friend WithEvents dgvCarreras As System.Windows.Forms.DataGridView
     Friend WithEvents btnListar As System.Windows.Forms.Button
     Friend WithEvents btnConsultar As System.Windows.Forms.Button
+    Friend WithEvents txtAncho As System.Windows.Forms.TextBox
+    Friend WithEvents txtLargo As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Protected Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents btnArea As System.Windows.Forms.Button
+    Friend WithEvents txtResultado As System.Windows.Forms.TextBox
+    Friend WithEvents txtResultadoArea As System.Windows.Forms.Label
 
 End Class
