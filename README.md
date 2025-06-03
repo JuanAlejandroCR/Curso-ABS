@@ -47,20 +47,6 @@ Servir como base técnica y didáctica del curso, facilitando:
 
 ---
 
-## 🧩 Estructura del proyecto
-```
-curso_01/
-├── curso_01.sln
-├── curso_01/
-│ ├── bin/
-│ ├── obj/
-│ ├── config/
-│ │ └── conexion.txt # Archivo con cadena de conexión (ignorado por Git)
-│ ├── Form1.vb # Clase principal del proyecto (de momento)
-└── README.md
-```
----
-
 ## 📎 Notas adicionales
 
 - Este repositorio está en constante evolución conforme avanzamos en el curso.
