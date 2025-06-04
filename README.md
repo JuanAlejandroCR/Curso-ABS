@@ -22,6 +22,7 @@ Servir como base técnica y didáctica del curso, facilitando:
 - Fundamentos del lenguaje.
 - Su evolución desde VB clásico hasta .NET.
 - Ventajas y uso en aplicaciones de escritorio.
+- Uso y entendimiento del concepto de interfaces.
 
 ### 🔹 Historia de ABS
 
