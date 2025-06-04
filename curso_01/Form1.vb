@@ -23,93 +23,70 @@ Public Class Form1
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
 
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spCarreraInsert"
-        comando.CommandType = CommandType.StoredProcedure
+        'Dim comando As SqlCommand
+        'comando = New SqlCommand
+        'comando.Connection = conexion
+        'comando.CommandText = "spCarreraInsert"
+        'comando.CommandType = CommandType.StoredProcedure
 
-        Dim parCarrearaId As SqlParameter
-        parCarrearaId = New SqlParameter
-        parCarrearaId.ParameterName = "carreraid"
-        parCarrearaId.Value = 0
-        parCarrearaId.Direction = ParameterDirection.Output
+        'Dim parCarrearaId As SqlParameter
+        'parCarrearaId = New SqlParameter
+        'parCarrearaId.ParameterName = "carreraid"
+        'parCarrearaId.Value = 0
+        'parCarrearaId.Direction = ParameterDirection.Output
 
-        comando.Parameters.Add(parCarrearaId)
+        'comando.Parameters.Add(parCarrearaId)
 
-        Dim parNombre As SqlParameter
-        parNombre = New SqlParameter
-        parNombre.ParameterName = "nombre"
-        parNombre.Value = txtNombre.Text
+        'Dim parNombre As SqlParameter
+        'parNombre = New SqlParameter
+        'parNombre.ParameterName = "nombre"
+        'parNombre.Value = txtNombre.Text
 
-        comando.Parameters.Add(parNombre)
+        'comando.Parameters.Add(parNombre)
 
-        Dim parSiglas As SqlParameter
-        parSiglas = New SqlParameter
-        parSiglas.ParameterName = "siglas"
-        parSiglas.Value = txtSiglas.Text
+        'Dim parSiglas As SqlParameter
+        'parSiglas = New SqlParameter
+        'parSiglas.ParameterName = "siglas"
+        'parSiglas.Value = txtSiglas.Text
 
-        comando.Parameters.Add(parSiglas)
+        'comando.Parameters.Add(parSiglas)
 
+        'comando.ExecuteNonQuery()
 
-        comando.ExecuteNonQuery()
+        'txtID.Text = comando.Parameters("carreraid").Value
 
-        txtID.Text = comando.Parameters("carreraid").Value
+        'Dim db As DB
+        'db = New DB()
+        'db.AddParemeter("nombre", txtNombre.Text)
+        'db.AddParemeter("siglas", txtSiglas.Text)
+        'db.AddOutputParameter("carreraid", 0, 0)
+        'db.Execute("spCarreraInsert")
+
+        'txtID.Text = db.OutParameter("carreraid")
+
+        Dim servicio As ICarrera
+        servicio = New CarreraDomainObject
+        servicio.Insert(txtNombre.Text, txtSiglas.Text)
 
         llenaGrid()
     End Sub
 
     Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
 
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spCarreraDeleteById"
-        comando.CommandType = CommandType.StoredProcedure
+        Dim servicio As ICarrera
+        servicio = New CarreraDomainObject
+        servicio.DeleteById(txtID.Text)
 
-        Dim parCarrearaId As SqlParameter
-        parCarrearaId = New SqlParameter
-        parCarrearaId.ParameterName = "carreraid"
-        parCarrearaId.Value = CInt(txtID.Text)
-
-        comando.Parameters.Add(parCarrearaId)
-
-        comando.ExecuteNonQuery()
         llenaGrid()
     End Sub
 
 
     Private Sub btnActualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnActualizar.Click
 
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spCarreraUpdate"
-        comando.CommandType = CommandType.StoredProcedure
+        Dim servicio As ICarrera
+        servicio = New CarreraDomainObject
+        servicio.Update(CInt(txtID.Text), txtNombre.Text, txtSiglas.Text)
 
-        Dim parNombre As SqlParameter
-        parNombre = New SqlParameter
-        parNombre.ParameterName = "nombre"
-        parNombre.Value = txtNombre.Text
-
-        comando.Parameters.Add(parNombre)
-
-        Dim parSiglas As SqlParameter
-        parSiglas = New SqlParameter
-        parSiglas.ParameterName = "siglas"
-        parSiglas.Value = txtSiglas.Text
-
-        comando.Parameters.Add(parSiglas)
-
-        Dim parCarrearaId As SqlParameter
-        parCarrearaId = New SqlParameter
-        parCarrearaId.ParameterName = "carreraid"
-        parCarrearaId.Value = CInt(txtID.Text)
-
-        comando.Parameters.Add(parCarrearaId)
-
-
-        comando.ExecuteNonQuery()
         llenaGrid()
     End Sub
 
@@ -134,62 +111,36 @@ Public Class Form1
     End Sub
 
     Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+        Dim db As DB
+        db = New DB()
+        db.AddParemeter("carreraid", CInt(txtID.Text))
 
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spCarreraGetById"
-        comando.CommandType = CommandType.StoredProcedure
+        Dim resultado As DataTable
+        resultado = db.ExecuteResultSet("spCarreraGetById")
 
-        Dim parCarrearaId As SqlParameter
-        parCarrearaId = New SqlParameter
-        parCarrearaId.ParameterName = "carreraid"
-        parCarrearaId.Value = CInt(txtID.Text)
-
-        comando.Parameters.Add(parCarrearaId)
-
-        Dim resultados As DataSet
-        resultados = New DataSet()
-
-        Dim adaptador As SqlDataAdapter
-        adaptador = New SqlDataAdapter()
-
-        adaptador.SelectCommand = comando
-        adaptador.Fill(resultados, "carreras")
-
-        If resultados.Tables("carreras").Rows.Count = 0 Then
+        If resultado.Rows.Count = 0 Then
             MessageBox.Show("El Id no existe en la tabla")
             Return
         End If
 
-
-        txtNombre.Text = resultados.Tables("carreras").Rows(0)("nombre")
-        txtSiglas.Text = resultados.Tables("carreras").Rows(0)("siglas")
+        txtNombre.Text = resultado.Rows(0)("nombre")
+        txtSiglas.Text = resultado.Rows(0)("siglas")
 
     End Sub
 
     Private Sub llenaGrid()
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spCarreraGetList"
-        comando.CommandType = CommandType.StoredProcedure
+        Dim db As DB
+        db = New DB()
 
-        Dim resultados As DataSet
-        resultados = New DataSet()
-
-        Dim adaptador As SqlDataAdapter
-        adaptador = New SqlDataAdapter()
-        adaptador.SelectCommand = comando
-        adaptador.Fill(resultados, "carreras")
-
-        dgvCarreras.DataSource = resultados.Tables("carreras")
+        dgvCarreras.DataSource = db.ExecuteResultSet("spCarreraGetList")
         dgvCarreras.Columns("nombre").Width = 250
+
     End Sub
 
 
-    Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click
-        ' Ejemplo para el tema de SP con parámetros de salida
+
+    ' Ejemplo para el tema de SP con parámetros de salida
+    Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click        
         Dim comando As SqlCommand
         comando = New SqlCommand
         comando.Connection = conexion

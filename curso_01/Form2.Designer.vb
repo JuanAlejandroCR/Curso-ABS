@@ -112,7 +112,6 @@ Partial Class Form2
         '
         'txtAlumnoId
         '
-        Me.txtAlumnoId.Enabled = False
         Me.txtAlumnoId.Location = New System.Drawing.Point(153, 42)
         Me.txtAlumnoId.Name = "txtAlumnoId"
         Me.txtAlumnoId.Size = New System.Drawing.Size(100, 20)
@@ -180,7 +179,7 @@ Partial Class Form2
         Me.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAlumnos.Location = New System.Drawing.Point(42, 352)
         Me.dgvAlumnos.Name = "dgvAlumnos"
-        Me.dgvAlumnos.Size = New System.Drawing.Size(684, 227)
+        Me.dgvAlumnos.Size = New System.Drawing.Size(665, 257)
         Me.dgvAlumnos.TabIndex = 29
         '
         'Form2
