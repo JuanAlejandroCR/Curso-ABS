@@ -1,4 +1,6 @@
 ﻿Imports Escuela.Contracts.DataTransferObjects
+Imports Escuela.Contracts.DisplayObjects
+Imports System.ComponentModel
 
 Namespace Services
     Public Interface ICarrera
@@ -9,7 +11,7 @@ Namespace Services
 
         Sub Update(ByVal dto As CarreraDTO)
 
-        Function GetList() As DataTable
+        Function GetList() As BindingList(Of CarreraDisplayObject)
 
         Function GetById(ByVal carreraid As Integer) As CarreraDTO
 
