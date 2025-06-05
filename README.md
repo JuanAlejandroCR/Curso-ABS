@@ -51,5 +51,5 @@ Servir como base técnica y didáctica del curso, facilitando:
 ## 📎 Notas adicionales
 
 - Este repositorio está en constante evolución conforme avanzamos en el curso.
-- El archivo `conexion.txt` ha sido excluido del repositorio por razones de seguridad (contiene el string de conexion para la DB).
+- El archivo `config/conexion.txt` ha sido excluido del repositorio por razones de seguridad (contiene el string de conexion para la DB).
 
