@@ -66,8 +66,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarreraDomainObject.vb" />
-    <Compile Include="DB.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -79,9 +77,7 @@
       <DependentUpon>Form2.vb</DependentUpon>
     </Compile>
     <Compile Include="Form2.vb">
-      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ICarrera.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,6 +120,16 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Escuela.BusinessCore\Escuela.BusinessCore.vbproj">
+      <Project>{E67F2A47-47D5-44D0-8CBB-12EDBDB47694}</Project>
+      <Name>Escuela.BusinessCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Escuela.Contracts\Escuela.Contracts.vbproj">
+      <Project>{86E51AF1-891D-4163-B0AB-B95CF6F1E370}</Project>
+      <Name>Escuela.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

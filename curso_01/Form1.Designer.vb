@@ -32,7 +32,6 @@ Partial Class Form1
         Me.btnEliminar = New System.Windows.Forms.Button
         Me.btnActualizar = New System.Windows.Forms.Button
         Me.dgvCarreras = New System.Windows.Forms.DataGridView
-        Me.btnListar = New System.Windows.Forms.Button
         Me.btnConsultar = New System.Windows.Forms.Button
         Me.txtAncho = New System.Windows.Forms.TextBox
         Me.txtLargo = New System.Windows.Forms.TextBox
@@ -127,15 +126,6 @@ Partial Class Form1
         Me.dgvCarreras.Size = New System.Drawing.Size(595, 179)
         Me.dgvCarreras.TabIndex = 9
         '
-        'btnListar
-        '
-        Me.btnListar.Location = New System.Drawing.Point(364, 155)
-        Me.btnListar.Name = "btnListar"
-        Me.btnListar.Size = New System.Drawing.Size(75, 23)
-        Me.btnListar.TabIndex = 10
-        Me.btnListar.Text = "Listar"
-        Me.btnListar.UseVisualStyleBackColor = True
-        '
         'btnConsultar
         '
         Me.btnConsultar.Location = New System.Drawing.Point(338, 33)
@@ -215,7 +205,6 @@ Partial Class Form1
         Me.Controls.Add(Me.txtLargo)
         Me.Controls.Add(Me.txtAncho)
         Me.Controls.Add(Me.btnConsultar)
-        Me.Controls.Add(Me.btnListar)
         Me.Controls.Add(Me.dgvCarreras)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnEliminar)
@@ -243,7 +232,6 @@ Partial Class Form1
     Friend WithEvents btnEliminar As System.Windows.Forms.Button
     Friend WithEvents btnActualizar As System.Windows.Forms.Button
     Friend WithEvents dgvCarreras As System.Windows.Forms.DataGridView
-    Friend WithEvents btnListar As System.Windows.Forms.Button
     Friend WithEvents btnConsultar As System.Windows.Forms.Button
     Friend WithEvents txtAncho As System.Windows.Forms.TextBox
     Friend WithEvents txtLargo As System.Windows.Forms.TextBox

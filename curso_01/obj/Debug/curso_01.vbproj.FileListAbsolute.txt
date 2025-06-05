@@ -19,3 +19,9 @@ C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.Resources.resources
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.vbproj.GenerateResource.Cache
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.Form2.resources
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.BusinessCore.dll
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.Contracts.dll
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.BusinessCore.pdb
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.BusinessCore.xml
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.Contracts.pdb
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.Contracts.xml
