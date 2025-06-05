@@ -1,5 +1,7 @@
 ﻿Imports Escuela.Contracts.Services
 Imports Escuela.Contracts.DataTransferObjects
+Imports Escuela.Contracts.DisplayObjects
+Imports System.ComponentModel
 
 Namespace DomainObjects
     Public Class CarreraDomainObject
@@ -31,12 +33,6 @@ Namespace DomainObjects
             db.Execute("spCarreraUpdate")
         End Sub
 
-        Public Function GetList() As DataTable Implements ICarrera.GetList
-            Dim db As DB
-            db = New DB()
-
-            Return db.ExecuteResultSet("spCarreraGetList")
-        End Function
 
         Public Function GetById(ByVal carreraid As Integer) As CarreraDTO Implements ICarrera.GetById
             Dim db As DB = New DB()
@@ -56,5 +52,25 @@ Namespace DomainObjects
             Return carreraDTO
         End Function
 
+        Public Function GetList1() As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.CarreraDisplayObject) Implements Contracts.Services.ICarrera.GetList
+            Dim db As DB
+            db = New DB()
+
+            Dim resultado As DataTable
+            resultado = db.ExecuteResultSet("spCarreraGetList")
+
+            Dim lista As BindingList(Of CarreraDisplayObject) = New BindingList(Of CarreraDisplayObject)
+
+            For Each renglon As DataRow In resultado.Rows
+                Dim display As CarreraDisplayObject = New CarreraDisplayObject
+                display.CarreraId = CInt(renglon("carreraid"))
+                display.Nombre = renglon("nombre")
+                display.Siglas = renglon("siglas")
+
+                lista.Add(display)
+            Next
+
+            Return lista
+        End Function
     End Class
 End Namespace
