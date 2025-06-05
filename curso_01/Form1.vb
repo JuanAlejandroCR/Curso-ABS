@@ -1,10 +1,9 @@
-﻿Imports System.IO
-Imports System.Data.SqlClient
-
-Imports Escuela.BusinessCore.DomainObjects
+﻿Imports Escuela.BusinessCore.DomainObjects
 Imports Escuela.Contracts.DataTransferObjects
 Imports Escuela.Contracts.Services
-
+Imports Escuela.Contracts.DisplayObjects
+Imports System.ComponentModel
+Imports Escuela.BusinessCore
 
 Public Class Form1
 
@@ -82,52 +81,16 @@ Public Class Form1
     End Sub
 
 
-
     ' Ejemplo para el tema de SP con parámetros de salida
     Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click        
+        Dim db As DB
+        db = New DB()
 
-        Dim conexion As SqlConnection
-        ' Lee el string de conexion a la DB en el archivo curso_01\config\conexion.txt
-        Dim rutaBase As String = Path.GetFullPath(Path.Combine(Application.StartupPath, "..\..\..\"))
-        Dim rutaConexion As String = Path.Combine(rutaBase, "config\conexion.txt")
+        db.AddParemeter("largo", CInt(txtLargo.Text))
+        db.AddParemeter("ancho", CInt(txtAncho.Text))
+        db.AddOutputParameter("area", 0, 0)
+        db.Execute("spAreaDeRectangulo")
 
-        Dim cadenaConexion As String = File.ReadAllText(rutaConexion)
-
-        conexion = New SqlConnection()
-        conexion.ConnectionString = cadenaConexion
-        conexion.Open()
-
-        Dim comando As SqlCommand
-        comando = New SqlCommand
-        comando.Connection = conexion
-        comando.CommandText = "spAreaDeRectangulo"
-        comando.CommandType = CommandType.StoredProcedure
-
-        Dim parLargo As SqlParameter
-        parLargo = New SqlParameter
-        parLargo.ParameterName = "largo"
-        parLargo.Value = CInt(txtLargo.Text)
-
-        comando.Parameters.Add(parLargo)
-
-        Dim parAncho As SqlParameter
-        parAncho = New SqlParameter
-        parAncho.ParameterName = "ancho"
-        parAncho.Value = txtAncho.Text
-
-        comando.Parameters.Add(parAncho)
-
-        Dim parArea As SqlParameter
-        parArea = New SqlParameter
-        parArea.ParameterName = "area"
-        parArea.Value = 0
-        parArea.Direction = ParameterDirection.Output
-
-        comando.Parameters.Add(parArea)
-
-        comando.ExecuteNonQuery()
-
-        txtResultado.Text = comando.Parameters("area").Value
-
+        txtResultado.Text = db.OutParameter("area")
     End Sub
 End Class
