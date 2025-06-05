@@ -76,7 +76,11 @@ Public Class Form1
         Dim servicio As ICarrera
         servicio = New CarreraDomainObject
 
-        dgvCarreras.DataSource = servicio.GetList()
+        Dim lista As BindingList(Of CarreraDisplayObject) = New BindingList(Of CarreraDisplayObject)
+
+        lista = servicio.GetList()
+
+        dgvCarreras.DataSource = lista
         dgvCarreras.Columns("nombre").Width = 250
     End Sub
 
