@@ -7,8 +7,6 @@ Imports Escuela.BusinessCore
 
 Public Class Form1
 
-
-
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         llenaGrid()
     End Sub
@@ -22,7 +20,9 @@ Public Class Form1
         carrera.Nombre = txtNombre.Text
         carrera.Siglas = txtSiglas.Text
 
-        servicio.Insert(carrera)
+        carrera.IsNew = True
+
+        servicio.Save(carrera)
 
         llenaGrid()
     End Sub
@@ -48,7 +48,9 @@ Public Class Form1
         carrera.Nombre = txtNombre.Text
         carrera.Siglas = txtSiglas.Text
 
-        servicio.Update(carrera)
+        carrera.IsNew = False
+
+        servicio.Save(carrera)
 
         llenaGrid()
     End Sub
@@ -87,8 +89,8 @@ Public Class Form1
 
     ' Ejemplo para el tema de SP con parámetros de salida
     Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click        
-        Dim db As DB
-        db = New DB()
+        Dim db As DataAccessObjectBase
+        db = New DataAccessObjectBase()
 
         db.AddParemeter("largo", CInt(txtLargo.Text))
         db.AddParemeter("ancho", CInt(txtAncho.Text))

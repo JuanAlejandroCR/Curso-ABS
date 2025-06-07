@@ -1,5 +1,6 @@
 ﻿Namespace DataTransferObjects
     Public Class CarreraDTO
+        Inherits DataTransferObjectBase
 
         Private _carreraid As Integer
         Private _nombre As String

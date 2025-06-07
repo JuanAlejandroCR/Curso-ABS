@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Data.SqlClient
 
-Public Class DB
+Public Class DataAccessObjectBase
     Private conexion As SqlConnection
     Private comando As SqlCommand
 

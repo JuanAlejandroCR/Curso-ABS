@@ -2,75 +2,60 @@
 Imports Escuela.Contracts.DataTransferObjects
 Imports Escuela.Contracts.DisplayObjects
 Imports System.ComponentModel
+Imports Escuela.BusinessCore.DataAccesObjects
+Imports Escuela.Contracts
 
 Namespace DomainObjects
     Public Class CarreraDomainObject
+        Inherits DomainObjectBase
         Implements ICarrera
 
         Public Sub DeleteById(ByVal carreraid As Integer) Implements ICarrera.DeleteById
-            Dim db As DB
-            db = New DB()
-            db.AddParemeter("carreraid", carreraid)
-            db.Execute("spCarreraDeleteById")
+            Dim dao As CarreraDAO = New CarreraDAO
+
+            dao.DeleteById(carreraid)
         End Sub
 
-        Public Sub Insert(ByVal dto As CarreraDTO) Implements ICarrera.Insert
-            Dim db As DB
-            db = New DB()
-            db.AddParemeter("nombre", dto.Nombre)
-            db.AddParemeter("siglas", dto.Siglas)
-            db.AddOutputParameter("carreraid", 0, 0)
-            db.Execute("spCarreraInsert")
+        'Public Sub Insert(ByVal dto As CarreraDTO) Implements ICarrera.Insert
+        '    Dim dao As CarreraDAO = New CarreraDAO
 
-        End Sub
+        '    dao.Insert(dto)
 
-        Public Sub Update(ByVal dto As CarreraDTO) Implements ICarrera.Update
-            Dim db As DB
-            db = New DB()
-            db.AddParemeter("carreraid", dto.CarreraId)
-            db.AddParemeter("nombre", dto.Nombre)
-            db.AddParemeter("siglas", dto.Siglas)
-            db.Execute("spCarreraUpdate")
-        End Sub
+        'End Sub
+
+        'Public Sub Update(ByVal dto As CarreraDTO) Implements ICarrera.Update
+        '    Dim dao As CarreraDAO = New CarreraDAO
+
+        '    dao.Update(dto)
+        'End Sub
 
 
         Public Function GetById(ByVal carreraid As Integer) As CarreraDTO Implements ICarrera.GetById
-            Dim db As DB = New DB()
-            db.AddParemeter("carreraid", carreraid)
+            Dim dao As CarreraDAO = New CarreraDAO
 
-            Dim resultado As DataTable
-            resultado = db.ExecuteResultSet("spCarreraGetById")
-
-            If resultado.Rows.Count = 0 Then
-                Return New CarreraDTO()
-            End If
-
-            Dim carreraDTO As CarreraDTO = New CarreraDTO
-            carreraDTO.Nombre = resultado.Rows(0)("nombre")
-            carreraDTO.Siglas = resultado.Rows(0)("siglas")
-
-            Return carreraDTO
+            Return dao.GetById(carreraid)
         End Function
 
         Public Function GetList1() As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.CarreraDisplayObject) Implements Contracts.Services.ICarrera.GetList
-            Dim db As DB
-            db = New DB()
+            Dim dao As CarreraDAO = New CarreraDAO
 
-            Dim resultado As DataTable
-            resultado = db.ExecuteResultSet("spCarreraGetList")
-
-            Dim lista As BindingList(Of CarreraDisplayObject) = New BindingList(Of CarreraDisplayObject)
-
-            For Each renglon As DataRow In resultado.Rows
-                Dim display As CarreraDisplayObject = New CarreraDisplayObject
-                display.CarreraId = CInt(renglon("carreraid"))
-                display.Nombre = renglon("nombre")
-                display.Siglas = renglon("siglas")
-
-                lista.Add(display)
-            Next
-
-            Return lista
+            Return dao.GetList1()
         End Function
+
+        Public Sub Save(ByVal dto As Contracts.DataTransferObjectBase) Implements Contracts.Services.ICarrera.Save
+            DoSave(dto)
+        End Sub
+
+        Public Overrides Sub Insert(ByVal dto As Contracts.DataTransferObjectBase)
+            Dim dao As CarreraDAO = New CarreraDAO
+
+            dao.Insert(dto)
+        End Sub
+
+        Public Overrides Sub Update(ByVal dto As Contracts.DataTransferObjectBase)
+            Dim dao As CarreraDAO = New CarreraDAO
+
+            dao.Update(dto)
+        End Sub
     End Class
 End Namespace

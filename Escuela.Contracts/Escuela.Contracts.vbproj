@@ -60,8 +60,13 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTransferObjectBase.vb" />
+    <Compile Include="DataTransferObjects\AlumnoDTO.vb" />
     <Compile Include="DataTransferObjects\CarreraDTO.vb" />
     <Compile Include="DisplayObjects\CarreraDisplayObject.vb" />
+    <Compile Include="DisplayObjects\AlumnoDisplayObject.vb" />
+    <Compile Include="Enums\CarreraEnum.vb" />
+    <Compile Include="Enums\AlumnoEnum.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -77,6 +82,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\IAlumno.vb" />
     <Compile Include="Services\ICarrera.vb" />
   </ItemGroup>
   <ItemGroup>
