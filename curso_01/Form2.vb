@@ -1,67 +1,98 @@
-﻿'Imports System.IO
-'Imports System.Data.SqlClient
+﻿Imports Escuela.BusinessCore.DomainObjects
+Imports Escuela.Contracts.DataTransferObjects
+Imports Escuela.Contracts.Services
+Imports Escuela.Contracts.DisplayObjects
+Imports System.ComponentModel
+Imports Escuela.BusinessCore
+
+Public Class Form2
+
+    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        llenaGrid()
+    End Sub
+
+    Private Sub llenaGrid()
+        Dim servicio As IAlumno
+        servicio = New AlumnoDomainObject
+
+        Dim lista As BindingList(Of AlumnoDisplayObject) = New BindingList(Of AlumnoDisplayObject)
+        lista = servicio.GetList()
+
+        dgvAlumnos.DataSource = lista
+
+    End Sub
 
 
-'Public Class Form2
+    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
 
-'    Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-'        llenaGrid()
-'    End Sub
+        Dim servicio As IAlumno
+        servicio = New AlumnoDomainObject
 
-'    Private Sub llenaGrid()
-'        Dim db As DB
-'        db = New DB()
+        Dim alumno As AlumnoDTO = New AlumnoDTO
+        alumno.Nombre = txtNombre.Text
+        alumno.Matricula = txtMatricula.Text
+        alumno.ApellidoPaterno = txtApellidoPaterno.Text
+        alumno.ApellidoMaterno = txtApellidoMaterno.Text
+        alumno.CarreraId = txtCarreraId.Text
 
-'        dgvAlumnos.DataSource = db.ExecuteResultSet("spAlumnoGetList")
-'    End Sub
+        alumno.IsNew = True
 
+        servicio.Save(alumno)
 
-'    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        llenaGrid()
+    End Sub
 
-'        Dim db As DB
-'        db = New DB()
-'        db.AddParemeter("nombre", txtNombre.Text)
-'        db.AddParemeter("matricula", txtMatricula.Text)
-'        db.AddParemeter("apellidopaterno", txtApellidoPaterno.Text)
-'        db.AddParemeter("apellidomaterno", txtApellidoMaterno.Text)
-'        db.AddParemeter("carreraid", txtCarreraId.Text)
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
 
-'        db.AddOutputParameter("alumnoid", 0, 0)
-'        db.Execute("spAlumnoInsert")
+        Dim servicio As IAlumno
+        servicio = New AlumnoDomainObject
 
-'        txtAlumnoId.Text = db.OutParameter("alumnoid")
+        servicio.DeleteById(CInt(txtAlumnoId.Text))
 
-'        llenaGrid()
-'    End Sub
+        llenaGrid()
+    End Sub
 
-'    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+    Private Sub btnActualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnActualizar.Click
 
-'        Dim db As DB
-'        db = New DB()
-'        db.AddParemeter("alumnoid", CInt(txtAlumnoId.Text))
-'        db.Execute("spAlumnoDeleteById")
+        Dim servicio As IAlumno
+        servicio = New AlumnoDomainObject
 
-'        llenaGrid()
-'    End Sub
+        Dim alumno As AlumnoDTO = New AlumnoDTO
+        alumno.AlumnoId = txtAlumnoId.Text
+        alumno.Nombre = txtNombre.Text
+        alumno.Matricula = txtMatricula.Text
+        alumno.ApellidoPaterno = txtApellidoPaterno.Text
+        alumno.ApellidoMaterno = txtApellidoMaterno.Text
+        alumno.CarreraId = txtCarreraId.Text
 
-'    Private Sub btnActualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnActualizar.Click
+        alumno.IsNew = False
 
-'        Dim db As DB
-'        db = New DB()
-'        db.AddParemeter("alumnoid", CInt(txtAlumnoId.Text))
-'        db.AddParemeter("nombre", txtNombre.Text)
-'        db.AddParemeter("matricula", txtMatricula.Text)
-'        db.AddParemeter("apellidopaterno", txtApellidoPaterno.Text)
-'        db.AddParemeter("apellidomaterno", txtApellidoMaterno.Text)
-'        db.AddParemeter("carreraid", txtCarreraId.Text)
+        servicio.Save(alumno)
 
-'        db.Execute("spAlumnoUpdate")
+        llenaGrid()
+    End Sub
 
-'        llenaGrid()
-'    End Sub
+    Private Sub btnListar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListar.Click
+        llenaGrid()
+    End Sub
 
-'    Private Sub btnListar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnListar.Click
-'        llenaGrid()
-'    End Sub
+    Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
+        Dim servicio As IAlumno
+        servicio = New AlumnoDomainObject
 
-'End Class
+        Dim resultadoDTO As AlumnoDTO = New AlumnoDTO
+        resultadoDTO = servicio.GetById(CInt(txtAlumnoId.Text))
+
+        If resultadoDTO.Nombre = "" Then
+            MessageBox.Show("El Id no existe en la tabla")
+            Return
+        End If
+
+        txtNombre.Text = resultadoDTO.Nombre
+        txtMatricula.Text = resultadoDTO.Matricula
+        txtApellidoPaterno.Text = resultadoDTO.ApellidoPaterno
+        txtApellidoMaterno.Text = resultadoDTO.ApellidoMaterno
+        txtCarreraId.Text = resultadoDTO.CarreraId
+
+    End Sub
+End Class

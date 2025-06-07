@@ -39,6 +39,7 @@ Partial Class Form2
         Me.txtCarreraId = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.dgvAlumnos = New System.Windows.Forms.DataGridView
+        Me.btnConsultar = New System.Windows.Forms.Button
         CType(Me.dgvAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -182,11 +183,21 @@ Partial Class Form2
         Me.dgvAlumnos.Size = New System.Drawing.Size(665, 257)
         Me.dgvAlumnos.TabIndex = 29
         '
+        'btnConsultar
+        '
+        Me.btnConsultar.Location = New System.Drawing.Point(522, 42)
+        Me.btnConsultar.Name = "btnConsultar"
+        Me.btnConsultar.Size = New System.Drawing.Size(75, 23)
+        Me.btnConsultar.TabIndex = 30
+        Me.btnConsultar.Text = "Consultar"
+        Me.btnConsultar.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1045, 679)
+        Me.Controls.Add(Me.btnConsultar)
         Me.Controls.Add(Me.dgvAlumnos)
         Me.Controls.Add(Me.txtCarreraId)
         Me.Controls.Add(Me.Label6)
@@ -228,4 +239,5 @@ Partial Class Form2
     Friend WithEvents txtCarreraId As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents dgvAlumnos As System.Windows.Forms.DataGridView
+    Friend WithEvents btnConsultar As System.Windows.Forms.Button
 End Class
