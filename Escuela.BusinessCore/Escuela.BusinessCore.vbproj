@@ -63,9 +63,13 @@
     <Compile Include="DataAccessObjects\CarreraDAO.vb" />
     <Compile Include="DataAccessObjectBase.vb" />
     <Compile Include="DataAccessObjects\AlumnoDAO.vb" />
+    <Compile Include="DataAccessObjects\AlumnoMateriaDAO.vb" />
+    <Compile Include="DataAccessObjects\MateriaDAO.vb" />
     <Compile Include="DomainObjectBase.vb" />
     <Compile Include="DomainObjects\CarreraDomainObject.vb" />
     <Compile Include="DomainObjects\AlumnoDomainObject.vb" />
+    <Compile Include="DomainObjects\AlumnoMateriaDomainObject.vb" />
+    <Compile Include="DomainObjects\MateriaDomainObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

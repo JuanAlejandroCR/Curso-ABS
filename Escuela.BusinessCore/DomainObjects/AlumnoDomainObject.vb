@@ -45,5 +45,10 @@ Namespace DomainObjects
             DoSave(dto)
         End Sub
 
+        Public Function GetByMatricula(ByVal matricula As String) As Contracts.DataTransferObjects.AlumnoDTO Implements Contracts.Services.IAlumno.GetByMatricula
+            Dim dao As AlumnoDAO = New AlumnoDAO
+
+            Return dao.GetByMatricula(matricula)
+        End Function
     End Class
 End Namespace
