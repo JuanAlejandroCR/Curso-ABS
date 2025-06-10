@@ -11,6 +11,9 @@ Namespace Services
         Function GetList() As BindingList(Of AlumnoDisplayObject)
 
         Function GetById(ByVal alumnoid As Integer) As AlumnoDTO
+
+        Function GetByMatricula(ByVal matricula As String) As AlumnoDTO
+
     End Interface
 End Namespace
 
