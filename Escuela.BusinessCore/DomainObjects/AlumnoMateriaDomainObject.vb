@@ -8,7 +8,6 @@ Imports Escuela.Contracts
 Namespace DomainObjects
     Public Class AlumnoMateriaDomainObject
         Inherits DomainObjectBase
-
         Implements IAlumnoMateria
 
         Public Overrides Sub Insert(ByVal dto As Contracts.DataTransferObjectBase)
@@ -21,14 +20,15 @@ Namespace DomainObjects
 
         End Sub
 
-        Public Function GetList() As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.AlumnoMateriaDisplayObject) Implements Contracts.Services.IAlumnoMateria.GetList
-            Dim dao As AlumnoMateriaDAO = New AlumnoMateriaDAO()
-
-            Return dao.GetList1()
-        End Function
 
         Public Sub Save(ByVal dto As Contracts.DataTransferObjectBase) Implements Contracts.Services.IAlumnoMateria.Save
             DoSave(dto)
         End Sub
+
+        Public Function GetListByAlumnoId(ByVal alumnoid As Integer) As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.AlumnoMateriaDisplayObject) Implements Contracts.Services.IAlumnoMateria.GetListByAlumnoId
+            Dim dao As AlumnoMateriaDAO = New AlumnoMateriaDAO()
+
+            Return dao.GetList1ByAlumnoId(alumnoid)
+        End Function
     End Class
 End Namespace

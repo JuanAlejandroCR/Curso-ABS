@@ -10,7 +10,7 @@ Namespace DataAccesObjects
         Inherits DataAccessObjectBase
 
         Const SP_INSERT As String = "spAlumnoMateriaInsert"
-        Const SP_GETLIST As String = "spAlumnoMateriaGetList"
+        Const SP_GETLISTBYALUMNOID As String = "spAlumnoMateriaGetListByAlumnoId"
 
         Public Sub Insert(ByVal dto As DataTransferObjectBase)
 
@@ -23,10 +23,11 @@ Namespace DataAccesObjects
 
         End Sub
 
-        Public Function GetList1() As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.AlumnoMateriaDisplayObject)
+        Public Function GetList1ByAlumnoId(ByVal ByAlumnoId) As System.ComponentModel.BindingList(Of Contracts.DisplayObjects.AlumnoMateriaDisplayObject)
+            AddParemeter(AlumnoMateriaEnum.AlumnoId.ToString, ByAlumnoId)
 
             Dim resultado As DataTable
-            resultado = ExecuteResultSet(SP_GETLIST)
+            resultado = ExecuteResultSet(SP_GETLISTBYALUMNOID)
 
             Dim lista As BindingList(Of AlumnoMateriaDisplayObject) = New BindingList(Of AlumnoMateriaDisplayObject)
 

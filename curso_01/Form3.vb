@@ -31,7 +31,7 @@ Public Class Form3
 
         Dim lista As BindingList(Of AlumnoMateriaDisplayObject) = New BindingList(Of AlumnoMateriaDisplayObject)
 
-        dgvMateriasAlumno.DataSource = servicio.GetList()
+        dgvMateriasAlumno.DataSource = servicio.GetListByAlumnoId(txtId.Text)
 
     End Sub
 

@@ -7,7 +7,7 @@ Namespace Services
 
         Sub Save(ByVal dto As DataTransferObjectBase)
 
-        Function GetList() As BindingList(Of AlumnoMateriaDisplayObject)
+        Function GetListByAlumnoId(ByVal alumnoid As Integer) As BindingList(Of AlumnoMateriaDisplayObject)
 
     End Interface
 End Namespace
