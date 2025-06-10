@@ -73,6 +73,7 @@
     <Compile Include="Enums\AlumnoEnum.vb" />
     <Compile Include="Enums\AlumnoMateriaEnum.vb" />
     <Compile Include="Enums\MateriaEnum.vb" />
+    <Compile Include="Exceptions\SiglaDuplicadaException.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

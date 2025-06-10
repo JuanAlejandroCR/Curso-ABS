@@ -16,20 +16,6 @@ Namespace DomainObjects
             dao.DeleteById(carreraid)
         End Sub
 
-        'Public Sub Insert(ByVal dto As CarreraDTO) Implements ICarrera.Insert
-        '    Dim dao As CarreraDAO = New CarreraDAO
-
-        '    dao.Insert(dto)
-
-        'End Sub
-
-        'Public Sub Update(ByVal dto As CarreraDTO) Implements ICarrera.Update
-        '    Dim dao As CarreraDAO = New CarreraDAO
-
-        '    dao.Update(dto)
-        'End Sub
-
-
         Public Function GetById(ByVal carreraid As Integer) As CarreraDTO Implements ICarrera.GetById
             Dim dao As CarreraDAO = New CarreraDAO
 
@@ -47,6 +33,15 @@ Namespace DomainObjects
         End Sub
 
         Public Overrides Sub Insert(ByVal dto As Contracts.DataTransferObjectBase)
+
+            Dim dtoCarrera As CarreraDTO = New CarreraDTO()
+            dtoCarrera = CType(dto, CarreraDTO)
+
+            If ExisteSigla(dtoCarrera.Siglas) Then
+                Throw New SiglaDuplicadaException
+            End If
+
+
             Dim dao As CarreraDAO = New CarreraDAO
 
             dao.Insert(dto)
@@ -57,5 +52,13 @@ Namespace DomainObjects
 
             dao.Update(dto)
         End Sub
+
+        Public Function ExisteSigla(ByVal sigla As String) As Boolean Implements Contracts.Services.ICarrera.ExisteSigla
+            If sigla = "ISC" Then
+                Return True
+            Else
+                Return False
+            End If
+        End Function
     End Class
 End Namespace

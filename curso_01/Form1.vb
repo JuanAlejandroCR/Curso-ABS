@@ -4,6 +4,8 @@ Imports Escuela.Contracts.Services
 Imports Escuela.Contracts.DisplayObjects
 Imports System.ComponentModel
 Imports Escuela.BusinessCore
+Imports System.Data.SqlClient
+Imports Escuela.Contracts
 
 Public Class Form1
 
@@ -22,7 +24,13 @@ Public Class Form1
 
         carrera.IsNew = True
 
-        servicio.Save(carrera)
+        Try
+            servicio.Save(carrera)
+        Catch objEx As SiglaDuplicadaException
+            MessageBox.Show("Ocurrió un error al guardar porque las siglas ya existen en la BD")
+        Catch objEx As Exception
+            MessageBox.Show("Ocurrió un error al guardar en la BD")
+        End Try
 
         llenaGrid()
     End Sub
@@ -88,7 +96,7 @@ Public Class Form1
 
 
     ' Ejemplo para el tema de SP con parámetros de salida
-    Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click        
+    Private Sub btnArea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArea.Click
         Dim db As DataAccessObjectBase
         db = New DataAccessObjectBase()
 

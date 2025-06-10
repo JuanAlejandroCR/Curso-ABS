@@ -13,5 +13,7 @@ Namespace Services
 
         Function GetById(ByVal carreraid As Integer) As CarreraDTO
 
+        Function ExisteSigla(ByVal sigla As String) As Boolean
+
     End Interface
 End Namespace
