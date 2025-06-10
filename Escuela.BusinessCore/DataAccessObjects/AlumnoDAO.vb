@@ -14,6 +14,7 @@ Namespace DataAccesObjects
         Const SP_UPDATE As String = "spAlumnoUpdate"
         Const SP_GETBYID As String = "spAlumnoGetById"
         Const SP_GETLIST As String = "spAlumnoGetList"
+        Const SP_GETBYMATRICULA As String = "spAlumnoGetByMatricula"
 
         Public Sub Insert(ByVal dto As DataTransferObjectBase)
 
@@ -90,6 +91,27 @@ Namespace DataAccesObjects
             Next
 
             Return lista
+        End Function
+
+        Public Function GetByMatricula(ByVal matricula As String) As AlumnoDTO            
+            AddParemeter(AlumnoEnum.Matricula.ToString, matricula)
+
+            Dim resultado As DataTable
+            resultado = ExecuteResultSet(SP_GETBYMATRICULA)
+
+            If resultado.Rows.Count = 0 Then
+                Return New AlumnoDTO()
+            End If
+
+            Dim alumnoDTO As AlumnoDTO = New AlumnoDTO
+            alumnoDTO.AlumnoId = resultado.Rows(0)(AlumnoEnum.AlumnoId.ToString)
+            alumnoDTO.Nombre = resultado.Rows(0)(AlumnoEnum.Nombre.ToString)
+            alumnoDTO.Matricula = resultado.Rows(0)(AlumnoEnum.Matricula.ToString)
+            alumnoDTO.ApellidoPaterno = resultado.Rows(0)(AlumnoEnum.ApellidoPaterno.ToString)
+            alumnoDTO.ApellidoMaterno = resultado.Rows(0)(AlumnoEnum.ApellidoMaterno.ToString)
+            alumnoDTO.CarreraId = resultado.Rows(0)(AlumnoEnum.CarreraId.ToString)
+
+            Return alumnoDTO
         End Function
     End Class
 

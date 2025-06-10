@@ -4,11 +4,13 @@ Imports Escuela.Contracts.Services
 Imports Escuela.Contracts.DisplayObjects
 Imports System.ComponentModel
 Imports Escuela.BusinessCore
+Imports Escuela.Contracts.Enums
 
 Public Class Form2
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         llenaGrid()
+        llenaCombos()
     End Sub
 
     Private Sub llenaGrid()
@@ -33,7 +35,7 @@ Public Class Form2
         alumno.Matricula = txtMatricula.Text
         alumno.ApellidoPaterno = txtApellidoPaterno.Text
         alumno.ApellidoMaterno = txtApellidoMaterno.Text
-        alumno.CarreraId = txtCarreraId.Text
+        alumno.CarreraId = cmbCarrera.SelectedValue
 
         alumno.IsNew = True
 
@@ -63,7 +65,7 @@ Public Class Form2
         alumno.Matricula = txtMatricula.Text
         alumno.ApellidoPaterno = txtApellidoPaterno.Text
         alumno.ApellidoMaterno = txtApellidoMaterno.Text
-        alumno.CarreraId = txtCarreraId.Text
+        alumno.CarreraId = cmbCarrera.SelectedValue
 
         alumno.IsNew = False
 
@@ -92,7 +94,19 @@ Public Class Form2
         txtMatricula.Text = resultadoDTO.Matricula
         txtApellidoPaterno.Text = resultadoDTO.ApellidoPaterno
         txtApellidoMaterno.Text = resultadoDTO.ApellidoMaterno
-        txtCarreraId.Text = resultadoDTO.CarreraId
+        cmbCarrera.SelectedValue = resultadoDTO.CarreraId
+
+    End Sub
+
+    Sub llenaCombos()
+        Dim servicio As ICarrera
+        servicio = New CarreraDomainObject
+
+        Dim lista As BindingList(Of CarreraDisplayObject) = New BindingList(Of CarreraDisplayObject)
+
+        cmbCarrera.DataSource = servicio.GetList()
+        cmbCarrera.DisplayMember = CarreraEnum.Nombre.ToString
+        cmbCarrera.ValueMember = CarreraEnum.CarreraId.ToString
 
     End Sub
 End Class

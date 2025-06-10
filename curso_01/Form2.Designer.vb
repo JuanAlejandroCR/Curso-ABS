@@ -36,10 +36,10 @@ Partial Class Form2
         Me.Label4 = New System.Windows.Forms.Label
         Me.txtApellidoMaterno = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
-        Me.txtCarreraId = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.dgvAlumnos = New System.Windows.Forms.DataGridView
         Me.btnConsultar = New System.Windows.Forms.Button
+        Me.cmbCarrera = New System.Windows.Forms.ComboBox
         CType(Me.dgvAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -159,13 +159,6 @@ Partial Class Form2
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "Apellido Materno"
         '
-        'txtCarreraId
-        '
-        Me.txtCarreraId.Location = New System.Drawing.Point(153, 263)
-        Me.txtCarreraId.Name = "txtCarreraId"
-        Me.txtCarreraId.Size = New System.Drawing.Size(100, 20)
-        Me.txtCarreraId.TabIndex = 28
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -192,14 +185,22 @@ Partial Class Form2
         Me.btnConsultar.Text = "Consultar"
         Me.btnConsultar.UseVisualStyleBackColor = True
         '
+        'cmbCarrera
+        '
+        Me.cmbCarrera.FormattingEnabled = True
+        Me.cmbCarrera.Location = New System.Drawing.Point(153, 266)
+        Me.cmbCarrera.Name = "cmbCarrera"
+        Me.cmbCarrera.Size = New System.Drawing.Size(319, 21)
+        Me.cmbCarrera.TabIndex = 31
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1045, 679)
+        Me.Controls.Add(Me.cmbCarrera)
         Me.Controls.Add(Me.btnConsultar)
         Me.Controls.Add(Me.dgvAlumnos)
-        Me.Controls.Add(Me.txtCarreraId)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.txtApellidoMaterno)
         Me.Controls.Add(Me.Label5)
@@ -236,8 +237,8 @@ Partial Class Form2
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtApellidoMaterno As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtCarreraId As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents dgvAlumnos As System.Windows.Forms.DataGridView
     Friend WithEvents btnConsultar As System.Windows.Forms.Button
+    Friend WithEvents cmbCarrera As System.Windows.Forms.ComboBox
 End Class

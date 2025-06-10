@@ -25,3 +25,4 @@ C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.BusinessCore.xml
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.Contracts.pdb
 C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\bin\Debug\Escuela.Contracts.xml
+C:\Users\rope1\OneDrive\Documents\Visual Studio 2008\Projects\curso_01\curso_01\obj\Debug\curso_01.Form3.resources
